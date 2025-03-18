@@ -1,3 +1,3 @@
-# rails-8-template
+# helper-methods-part-3
 
-For your AppDev-2 Projects!
+There is no target for this project.
