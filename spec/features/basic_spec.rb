@@ -172,7 +172,7 @@ end
 describe "User authentication with the Devise gem" do
   it "requires sign in before visiting /movies/new with the Devise `before_action :authenticate_user!` method", points: 1 do
     visit "/movies/new"
-    
+
     current_url = page.current_path
 
     expect(current_url).to eq("/users/sign_in")
