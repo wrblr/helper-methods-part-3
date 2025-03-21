@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
     if @movie.valid?
       @movie.save
 
-      redirect_to movies_url, notice: "Movie created successfully."
+      redirect_to movies_url, notice: "Movie was successfully created."
     else
       render "new"
     end
@@ -41,7 +41,7 @@ class MoviesController < ApplicationController
     movie_params = params.require(:movie).permit(:title, :description)
 
     if @movie.update(movie_params)
-      redirect_to @movie, notice: "Movie updated successfully."
+      redirect_to @movie, notice: "Movie was successfully updated."
     else
       render "edit"
     end
@@ -52,6 +52,6 @@ class MoviesController < ApplicationController
 
     @movie.destroy
 
-    redirect_to movies_url, notice: "Movie deleted successfully."
+    redirect_to movies_url, notice: "Movie was successfully destroyed."
   end
 end
