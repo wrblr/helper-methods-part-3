@@ -8,73 +8,21 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+    <%= render partial: "shared/cdn_assets" %>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
-    <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
-    <meta charset="utf-8">
-
-    <!-- Make it responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Connect Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-
-    <!-- Connect Bootstrap JavaScript and its dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Connect Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <%= link_to "Helper Methods 3", root_path, class: "navbar-brand" %>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <%= render partial: "shared/navbar" %>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <%= link_to "Movies", movies_path, class: "nav-link active" %>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container mt-4">
-      <% if notice.present? %>
-        <div class="alert alert-success" role="alert">
-          <%= notice %>
-        </div>
-      <% end %>
-
-      <% if alert.present? %>
-        <div class="alert alert-danger" role="alert">
-          <%= alert %>
-        </div>
-      </div>
-
-    <% end %>
-
-    <%= yield %>
+    <div class="container mt-3">
+      <%= render partial: "shared/flash_messages" %>
+      <%= yield %>
+    </div>
+  
   </body>
 </html>

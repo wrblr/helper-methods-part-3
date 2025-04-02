@@ -10,56 +10,6 @@
 
 <hr>
 
-<table>
-  <tr>
-    <th>
-      ID
-    </th>
-
-    <th>
-      Title
-    </th>
-
-    <th>
-      Description
-    </th>
-
-    <th>
-      Created at
-    </th>
-
-    <th>
-      Updated at
-    </th>
-
-    <th>
-    </th>
-  </tr>
-
-  <% @movies.each do |movie| %>
-  <tr>
-    <td>
-      <%= movie.id %>
-    </td>
-
-    <td>
-      <%= movie.title %>
-    </td>
-
-    <td>
-      <%= movie.description %>
-    </td>
-
-    <td>
-      <%= time_ago_in_words(movie.created_at) %> ago
-    </td>
-    <td>
-      <%= time_ago_in_words(movie.updated_at) %> ago
-    </td>
-
-    <td>
-      <%= link_to "Show details", movie %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+<div class="row">
+  <%= render @movies %>
+</div>
